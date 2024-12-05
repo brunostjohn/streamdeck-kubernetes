@@ -1,9 +1,9 @@
 import streamDeck, { LogLevel } from "@elgato/streamdeck";
 
-import { IncrementCounter } from "./actions/increment-counter";
+import { Status } from "./actions/status";
 
 streamDeck.logger.setLevel(LogLevel.TRACE);
 
-streamDeck.actions.registerAction(new IncrementCounter());
+streamDeck.actions.registerAction(new Status());
 
 streamDeck.connect();

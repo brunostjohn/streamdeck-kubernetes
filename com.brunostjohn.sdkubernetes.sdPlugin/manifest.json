@@ -4,11 +4,11 @@
   "Author": "Bruno St John",
   "Actions": [
     {
-      "Name": "Counter",
-      "UUID": "com.brunostjohn.sdkubernetes.increment",
+      "Name": "Status",
+      "UUID": "com.brunostjohn.sdkubernetes.status",
       "Icon": "imgs/actions/counter/icon",
-      "Tooltip": "Displays a count, which increments by one on press.",
-      "PropertyInspectorPath": "ui/increment-counter.html",
+      "Tooltip": "Displays the status of a Kubernetes resource.",
+      "PropertyInspectorPath": "ui/status.html",
       "Controllers": ["Keypad"],
       "States": [
         {

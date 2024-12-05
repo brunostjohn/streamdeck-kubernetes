@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head lang="en">
+    <title>Status Settings</title>
+    <meta charset="utf-8" />
+    <script src="https://sdpi-components.dev/releases/v3/sdpi-components.js"></script>
+    <script>
+      const streamDeckClient = SDPIComponents.streamDeckClient;
+
+      const pingCluster = async () => {
+        await streamDeckClient.send("sendToPlugin", { action: "pingCluster" });
+      };
+    </script>
+  </head>
+
+  <body>
+    <sdpi-item label="Kubeconfig (you can leave this empty)">
+      <sdpi-file setting="kubeconfig"></sdpi-file>
+      <sdpi-button onclick="javascript:pingCluster()">
+        Ping Cluster
+      </sdpi-button>
+    </sdpi-item>
+    <sdpi-item label="Namespace">
+      <sdpi-select setting="ns" placeholder="Please choose a namespace">
+      </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Resource Type">
+      <sdpi-select
+        setting="resourceType"
+        placeholder="Please choose a resource type"
+      >
+        <option value="deploy">Deployment</option>
+        <option value="pod">Pod</option>
+        <option value="job">Job</option>
+        <option value="sts">StatefulSet</option>
+      </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Resource">
+      <sdpi-select setting="resource" placeholder="Please choose a resource">
+      </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Press Action">
+      <sdpi-select
+        setting="pressAction"
+        placeholder="Please choose an action"
+        value="none"
+      >
+        <option value="none">Do Nothing</option>
+        <option value="restart">Restart</option>
+      </sdpi-select>
+    </sdpi-item>
+  </body>
+</html>
